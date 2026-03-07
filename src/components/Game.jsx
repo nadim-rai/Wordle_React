@@ -8,7 +8,7 @@ import GuessResults from "./GuessResults";
 
 //Pick a random word on every pageload
 const answer = sample(WORDS);
-console.log(answer)
+console.log({answer})
 
 function Game(){
     const [guesses, setGuesses] = React.useState([])
@@ -17,7 +17,7 @@ function Game(){
     }
     return(
         <>
-            <GuessResults guesses={guesses}/>
+            <GuessResults guesses={guesses} answer={answer}/>
             <GuessInput handleSubmitGuess={handleSubmitGuess} />
         </>
     
