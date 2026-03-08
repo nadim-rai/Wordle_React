@@ -6,6 +6,7 @@ import { NUM_OF_GUESSES_ALLOWED } from "../constants";
 
 import GuessInput from "./GuessInput";
 import GuessResults from "./GuessResults";
+import GameOverBanner from "./GameOverBanner";
 
 //Pick a random word on every pageload
 const answer = sample(WORDS);
@@ -28,7 +29,15 @@ function Game(){
         <>
             {gameStatus}
             <GuessResults guesses={guesses} answer={answer}/>
-            <GuessInput gameStatus={gameStatus} handleSubmitGuess={handleSubmitGuess} />
+            <GuessInput 
+                gameStatus={gameStatus} 
+                handleSubmitGuess={handleSubmitGuess} />
+            {gameStatus !== 'running' && 
+                <GameOverBanner 
+                    gameStatus={gameStatus}
+                    numOfGuesses={guesses.length}
+                    answer={answer} 
+                />}
         </>
     
     )
