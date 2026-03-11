@@ -1,6 +1,7 @@
 import {range} from '../utils';
 import { checkGuess } from '../game-helpers';
 
+
 function Cell({letter, status }){
     const className = status ? `cell ${status}` : 'cell'
     return (
